@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-RUN apt-get update && apt-get -y install samba winbind libnss-winbind krb5-user smbclient ldb-tools python3-cryptography
+RUN apt-get update && apt-get -y install samba winbind libnss-winbind krb5-user smbclient ldb-tools python3-cryptography python3-setproctitle
 
 COPY entrypoint.sh ./entrypoint.sh
 COPY rodc-syncer.sh ./rodc-syncer.sh
