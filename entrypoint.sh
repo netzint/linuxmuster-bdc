@@ -29,7 +29,7 @@ rm /etc/samba/smb.conf
 samba-tool domain join $DOMAIN RODC -U $NETBIOS\\$ADMINUSER --password "$ADMINPASSWORD"
 
 sed -i "/\[global\]/a ldap server require strong auth = no" /etc/samba/smb.conf
-sed -i "/\[global\]/a dns forwarder = 10.0.0.254" /etc/samba/smb.conf
+sed -i "/\[global\]/a dns forwarder = $GATEWAY" /etc/samba/smb.conf
 
 /usr/sbin/samba
 
