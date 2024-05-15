@@ -37,7 +37,7 @@ chmod 600 /etc/rsyncd-sysvol-replication.secret
 samba-tool domain join $DOMAIN $MODE -U $NETBIOS\\$ADMINUSER --password "$ADMINPASSWORD"
 
 sed -i "/\[global\]/a ldap server require strong auth = no" /etc/samba/smb.conf
-sed -i "/\[global\]/a dns forwarder = $GATEWAY" /etc/samba/smb.conf
+sed -i "/\[global\]/a dns forwarder = $DNSFORWARDER" /etc/samba/smb.conf
 
 rsync -avz --password-file=/etc/rsyncd-sysvol-replication.secret rsync://sysvol-replication@10.0.0.1/idmap.ldb /var/lib/samba/private/
 
