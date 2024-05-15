@@ -15,19 +15,19 @@ This is a docker image for a Linuxmuster.NET backup domain controller.
 ## Installation
 
 ### 1. Install linuxmuster-bdc package 
-=> on the main linuxmuster server
+> on the main linuxmuster server
 ```bash
 apt-get install linuxmuster-bdc
 ```
 
 ### 2. Edit sysvol replication secret (optional) 
-=> on the main linuxmuster server
+> on the main linuxmuster server
 ```bash
 nano /var/lib/linuxmuster-bdc/rsyncd-sysvol-replication.secret
 ```
 
 ### 3. Deploy docker-compose.yml 
-=> on the backup domain controller
+> on the backup domain controller
 ```bash
 mkdir -p /srv/docker/linuxmuster-bdc
 
@@ -56,7 +56,7 @@ EOF
 ```
 
 ### 4. Deploy configuration file 
-=> on the backup domain controller
+> on the backup domain controller
 ```bash
 cat << EOF > /srv/docker/linuxmuster-bdc/.env
 HOSTNAME="cache01.linuxmuster.lan" # hostname of bdc
@@ -73,7 +73,7 @@ EOF
 ```
 
 ### 5. Start docker and check the logs 
-=> on the backup domain controller
+> on the backup domain controller
 ```bash
 cd /srv/docker/linuxmuster-bdc
 docker compose up -d && docker compose logs -f
