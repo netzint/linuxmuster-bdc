@@ -4,8 +4,12 @@ RUN apt-get update && apt-get -y install samba winbind libnss-winbind krb5-user 
 
 COPY entrypoint.sh ./entrypoint.sh
 COPY bdc-syncer.sh ./bdc-syncer.sh
+COPY bdc-healthcheck.sh ./bdc-healthcheck.sh
 
 RUN chmod +x ./entrypoint.sh
 RUN chmod +x ./bdc-syncer.sh
+RUN chmod +x ./bdc-healthcheck.sh
+
+HEALTHCHECK CMD ./bdc-healthcheck.sh
 
 ENTRYPOINT ./entrypoint.sh

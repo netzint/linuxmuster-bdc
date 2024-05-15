@@ -6,6 +6,7 @@ services:
     container_name: linuxmuster-bdc
     restart: always
     hostname: ${HOSTNAME}
+    privileged: true
     env_file:
       - .env
     ports:
