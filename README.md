@@ -6,25 +6,28 @@
 
 This is a docker image for a Linuxmuster.NET backup domain controller.
 
-    * Can be used as full domain controller or as read-only domain controller
-    * Preload user and computer objects
-    * Cache password of user's on login
-    * Replicate sysvol to hold GPOs and scripts
-    * Can be used as DNS-Server with the full zone of the domain
+* Can be used as full domain controller or as read-only domain controller
+* Preload user and computer objects
+* Cache password of user's on login
+* Replicate sysvol to hold GPOs and scripts
+* Can be used as DNS-Server with the full zone of the domain
 
 ## Installation
 
-### 1. Install linuxmuster-bdc package -> on the main linuxmuster server
+### 1. Install linuxmuster-bdc package 
+=> on the main linuxmuster server
 ```bash
 apt-get install linuxmuster-bdc
 ```
 
-### 2. Edit sysvol replication secret (optional) -> on the main linuxmuster server
+### 2. Edit sysvol replication secret (optional) 
+=> on the main linuxmuster server
 ```bash
 nano /var/lib/linuxmuster-bdc/rsyncd-sysvol-replication.secret
 ```
 
-### 3. Deploy docker-compose.yml -> on the backup domain controller
+### 3. Deploy docker-compose.yml 
+=> on the backup domain controller
 ```bash
 mkdir -p /srv/docker/linuxmuster-bdc
 
@@ -52,7 +55,8 @@ services:
 EOF
 ```
 
-### 4. Deploy configuration file -> on the backup domain controller
+### 4. Deploy configuration file 
+=> on the backup domain controller
 ```bash
 cat << EOF > /srv/docker/linuxmuster-bdc/.env
 HOSTNAME="cache01.linuxmuster.lan" # hostname of bdc
@@ -68,7 +72,8 @@ RSYNCSECRET="DasIstEinSicheresPasswort!"
 EOF
 ```
 
-### 5. Start docker and check the logs  -> on the backup domain controller
+### 5. Start docker and check the logs 
+=> on the backup domain controller
 ```bash
 cd /srv/docker/linuxmuster-bdc
 docker compose up -d && docker compose logs -f
