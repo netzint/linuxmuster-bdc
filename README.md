@@ -78,3 +78,11 @@ EOF
 cd /srv/docker/linuxmuster-bdc
 docker compose up -d && docker compose logs -f
 ```
+
+
+## Related links
+
+* https://wiki.samba.org/index.php/Joining_a_Samba_DC_to_an_Existing_Active_Directory
+* https://wiki.samba.org/index.php/Join_a_domain_as_a_RODC
+* https://wiki.samba.org/index.php/Active_Directory_Sites
+* https://wiki.samba.org/index.php/Demoting_a_Samba_AD_DC
