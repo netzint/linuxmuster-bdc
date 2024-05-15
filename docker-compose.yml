@@ -1,9 +1,9 @@
 version: "3.5"
 services:
 
-  linuxmuster-rodc:
+  linuxmuster-bdc:
     build: .
-    container_name: linuxmuster-rodc
+    container_name: linuxmuster-bdc
     restart: always
     hostname: ${HOSTNAME}
     env_file:
