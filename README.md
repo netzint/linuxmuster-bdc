@@ -32,10 +32,9 @@ nano /var/lib/linuxmuster-bdc/rsyncd-sysvol-replication.secret
 mkdir -p /srv/docker/linuxmuster-bdc
 
 cat << EOF > /srv/docker/linuxmuster-bdc/docker-compose.yml
-version: "3.5"
 services:
   linuxmuster-bdc:
-    image: netzint/linuxmuster-bdc
+    image: ghcr.io/netzint/linuxmuster-bdc:latest
     container_name: linuxmuster-bdc
     restart: always
     hostname: ${HOSTNAME}
@@ -68,7 +67,7 @@ ADMINPASSWORD="Muster!"
 INTERVAL="600" # sync interval for user, computer and sysvol (in seconds)
 DNSFORWARDER="10.0.0.254"
 MODE="DC" # could be DC or RODC (read-only)
-RSYNCSECRET="DasIstEinSicheresPasswort!"
+RSYNCSECRET="Muster!"
 EOF
 ```
 
