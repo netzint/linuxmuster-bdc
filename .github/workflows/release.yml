@@ -21,11 +21,8 @@ jobs:
       - name: Build
         run: cd ./lmn-server && ./buildpackages.sh
 
-      - name: List files
-        run: ls -l ./lmn-server && echo "###############" && ls -l ./
-
       - name: Copy artifacts
-        run: mkdir archives && cp ../*.* ./archives
+        run: mkdir archives && cp ./linuxmuster-bdc_* ./archives
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
