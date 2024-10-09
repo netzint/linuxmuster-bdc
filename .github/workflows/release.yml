@@ -19,7 +19,7 @@ jobs:
         run: sudo apt update && sudo apt install debhelper -y
 
       - name: Build
-        run: ./lmn-server/buildpackages.sh
+        run: cd ./lmn-server && ./buildpackages.sh
 
       - name: List files
         run: ls -l ./lmn-server && echo "###############" && ls -l ./
