@@ -18,6 +18,9 @@ jobs:
       - name: Install dependencies
         run: sudo apt update && sudo apt install debhelper -y
 
+      - name: List files
+        run: ls -l ./
+
       - name: Build
         run: ./lmn-server/buildpackage.sh
 
