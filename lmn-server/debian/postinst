@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    install|configure)
+        mkdir -p /etc/rsyncd.d
+
+        if ! grep -Fxq "&include /etc/rsyncd.d" /etc/rsyncd.conf; then
+            sed -i '1s/^/\&include \/etc\/rsyncd.d\n/' /etc/rsyncd.conf
+        fi
+
+        systemctl restart rsync
+
+        exit 0
+        ;;
+    upgrade|abort-upgrade)
+        echo "No work to do..."
+        exit 0
+        ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0
