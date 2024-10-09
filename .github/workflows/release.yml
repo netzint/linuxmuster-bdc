@@ -5,7 +5,7 @@ on:
 
   workflow_dispatch:
 
-name: Build Release
+name: Build Debian Package
 
 jobs:
   deb-package:

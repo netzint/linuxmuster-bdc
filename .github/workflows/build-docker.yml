@@ -5,6 +5,8 @@ on:
 
   workflow_dispatch:
 
+name: Build BDC Docker Image
+
 permissions:
   contents: read
   packages: write
